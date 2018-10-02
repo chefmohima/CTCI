@@ -1,0 +1,56 @@
+##########################################################
+## Function to check if characters are unique in string##
+#########################################################
+def check_unique(s):
+# O(N*N) solution 
+    l = len(s)
+    for i in range(len(s)):
+        for j in range(i+1,len(s)):
+            if s[i] == s[j]:
+                return False
+    return True
+    
+
+def check_unique2(s):
+#O(N) solution
+    seen = []
+    for c in s:
+        if c not in seen:
+            seen.append(c)
+        else:
+            return False
+    return True
+    
+print(check_unique2('abcdd'))
+
+
+
+############################################################
+##Function to check if a string2 is permutation of string1##
+############################################################
+
+def check_string_permutation(string1,string2):
+    if len(string1) != len(string2):
+        return False
+    for c in string1:
+        if string1.count(c) != string2.count(c):
+            return False
+    
+    return True
+    
+def check_string_permutation2(string1,string2):
+    if len(string1) != len(string2):
+        return False
+    list1 = sorted(string1)
+    list2 = sorted(string2)
+    if list1 != list2:
+        return False
+    return True
+
+print(check_string_permutation2("ABCA","CAB"))
+    
+    
+    
+
+
+                
